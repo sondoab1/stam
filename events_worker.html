@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Events</title>
+    <link rel="stylesheet" href="events_worker.css">
+</head>
+<body>
+
+<h1>Library Events</h1>
+
+<ul id="events-list">
+    <li class="event" data-title="Book Club" data-start="2024-03-10" data-end="2024-03-10" data-summary="Discussing recent bestsellers">
+        <span class="event-title">Book Club</span>
+        <span class="event-details">Date: March 10, 2024  | Summary: Discussing recent bestsellers</span>
+        <button class="delete-btn">Delete</button>
+    </li>
+    <li class="event" data-title="Author Talk" data-start="2024-03-15" data-end="2024-03-15" data-summary="Meet the author of a popular new novel">
+        <span class="event-title">Author Talk</span>
+        <span class="event-details">Date: March 15, 2024 | Summary: Meet the author of a popular new novel</span>
+        <button class="delete-btn">Delete</button>
+    </li>
+    <li class="event" data-title="Story Time" data-start="2024-03-20" data-end="2024-03-20" data-summary="Interactive storytelling for children">
+        <span class="event-title">Story Time</span>
+        <span class="event-details">Date: March 20, 2024 | Summary: Interactive storytelling for children</span>
+        <button class="delete-btn">Delete</button>
+    </li>
+</ul>
+
+<div id="add-event">
+    <input type="text" id="title" placeholder="Event Title">
+    <input type="date" id="start" placeholder="Start Date">
+    <input type="date" id="end" placeholder="End Date">
+    <input type="text" id="summary" placeholder="Event Summary">
+    <button onclick="addEvent()">Add Event</button>
+</div>
+
+<script src="events_worker.js"></script>
+
+</body>
+</html>
+
