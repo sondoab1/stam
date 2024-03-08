@@ -1,22 +1,7 @@
 const assert = require('assert');
 const { addEvent, formatDate, deleteEvent } = require('./events_worker');
 
-describe('addEvent', () => {
-    it('should add a new event to the events list', () => {
-        global.document = {
-            getElementById: (id) => ({
-                value: 'Test Title',
-                id: id
-            })
-        };
-        const eventsList = {
-            appendChild: () => {}
-        };
-
-        addEvent();
-        assert.equal(document.getElementById.callCount, 4); 
-        assert.equal(eventsList.appendChild.callCount, 1); 
-    });
+describe('addEvent', () => 
 
     it('adds event to the list when all fields are filled and start date is before end date', () => {
         global.document = {
@@ -41,6 +26,34 @@ describe('addEvent', () => {
 
         assert.equal(window.alert.callCount, 1);
         assert.equal(document.getElementById.callCount, 2); 
+    });
+   it('does not add event if any field is empty', () => {
+        global.document = {
+            getElementById: (id) => ({
+                value: id === 'title' ? 'Test Title' : ''
+            })
+        };
+        const eventsList = {
+            appendChild: () => {}
+        };
+
+        addEvent();
+        assert.equal(eventsList.appendChild.callCount, 0); // Event should not be added to the eventsList
+    });
+
+    it('displays an alert if start date is after end date', () => {
+        global.document = {
+            getElementById: (id) => ({
+                value: id === 'start' ? '2022-03-10' : (id === 'end' ? '2022-03-08' : 'Test Summary')
+            })
+        };
+        global.window = {
+            alert: () => {}
+        };
+
+        addEvent();
+
+        assert.equal(window.alert.callCount, 1); // Alert should be displayed
     });
 });
 
