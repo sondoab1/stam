@@ -83,27 +83,6 @@ describe('formatDate', () => {
 });
 
 describe('deleteEvent', () => {
-
-    it('should delete an event when the confirmation is true', () => {
-        const event = {
-            target: {
-                classList: {
-                    contains: () => true
-                },
-                parentElement: {
-                    remove: () => {}
-                }
-            }
-        };
-        global.window = {
-            confirm: () => true
-        };
-
-        deleteEvent(event);
-        assert.equal(event.target.classList.contains.callCount, 1);
-        assert.equal(event.target.parentElement.remove.callCount, 1);
-    });
-
     it('should not delete an event when the confirmation is false', () => {
         const event = {
             target: {
@@ -144,4 +123,24 @@ describe('deleteEvent', () => {
         assert.equal(event.target.classList.contains.callCount, 1);
         assert.equal(event.target.parentElement.remove.callCount, 0);
     });
+  it('should not delete an event if the confirmation dialog is not confirmed', () => {
+    const event = {
+        target: {
+            classList: {
+                contains: () => true
+            },
+            parentElement: {
+                remove: () => {}
+            }
+        }
+    };
+    global.window = {
+        confirm: () => false
+    };
+
+    deleteEvent(event);
+    assert.equal(window.confirm.callCount, 1); // Confirm dialog should be invoked
+    assert.equal(event.target.classList.contains.callCount, 1); // Should check if the event target contains the delete button class
+    assert.equal(event.target.parentElement.remove.callCount, 0); // Should not remove the parent element
+});
 });
