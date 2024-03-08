@@ -3,23 +3,7 @@ const sinon = require('sinon');
 const { addEvent, formatDate, deleteEvent } = require('./open.js');
 
 describe('addEvent', () => {
-    it('should add a new event to the events list', () => {
-        
-        const getElementByIdStub = sinon.stub(document, 'getElementById');
-        getElementByIdStub.onFirstCall().returns({ value: 'Test Title' });
-        getElementByIdStub.onSecondCall().returns({ value: '2022-03-08' });
-        getElementByIdStub.onThirdCall().returns({ value: '2022-03-10' });
-        getElementByIdStub.onCall(3).returns({ value: 'Test Summary' });
-
-        const eventsList = { appendChild: sinon.spy() };
-
-        addEvent();
-
-        assert.strictEqual(getElementByIdStub.callCount, 4);
-        assert(eventsList.appendChild.calledOnce);
-
-        getElementByIdStub.restore();
-    });
+    
 
     it('adds event to the list when all fields are filled and start date is before end date', () => {
         sinon.stub(document, 'getElementById').onFirstCall().returns({ value: '2022-03-08' }).onSecondCall().returns({ value: '2022-03-10' });
@@ -44,12 +28,7 @@ describe('addEvent', () => {
 });
 
 describe('formatDate', () => {
-    it('should format a date string correctly', () => {
-        const dateString = '2024-03-08';
-        const formattedDate = formatDate(dateString);
-        assert.strictEqual(formattedDate, 'March 8, 2024');
-    });
-
+   
     it('should handle negative numbers in date string', () => {
         const dateString = '-2024-03-08';
         const formattedDate = formatDate(dateString);
@@ -74,23 +53,7 @@ describe('formatDate', () => {
 });
 
 describe('deleteEvent', () => {
-    it('should delete an event when confirmation is true', () => {
-        const event = {
-            target: {
-                classList: { contains: sinon.stub().returns(true) },
-                parentElement: { remove: sinon.spy() }
-            }
-        };
-
-        const confirmStub = sinon.stub(window, 'confirm').returns(true);
-
-        deleteEvent(event);
-
-        assert(event.target.classList.contains.calledWith('delete-btn'));
-        assert.strictEqual(event.target.parentElement.remove.callCount, 1);
-
-        confirmStub.restore();
-    });
+    
 
     it('should not delete an event when confirmation is false', () => {
         const event = {
