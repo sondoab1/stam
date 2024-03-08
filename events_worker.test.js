@@ -4,7 +4,7 @@ const { addEvent, formatDate, deleteEvent } = require('./open.js');
 
 describe('addEvent', () => {
     it('should add a new event to the events list', () => {
-        // Mock document.getElementById and eventsList
+        
         const getElementByIdStub = sinon.stub(document, 'getElementById');
         getElementByIdStub.onFirstCall().returns({ value: 'Test Title' });
         getElementByIdStub.onSecondCall().returns({ value: '2022-03-08' });
@@ -74,7 +74,7 @@ describe('formatDate', () => {
 });
 
 describe('deleteEvent', () => {
-    it('should delete an event', () => {
+    it('should delete an event when confirmation is true', () => {
         const event = {
             target: {
                 classList: { contains: sinon.stub().returns(true) },
@@ -82,10 +82,43 @@ describe('deleteEvent', () => {
             }
         };
 
+        const confirmStub = sinon.stub(window, 'confirm').returns(true);
+
         deleteEvent(event);
 
         assert(event.target.classList.contains.calledWith('delete-btn'));
         assert.strictEqual(event.target.parentElement.remove.callCount, 1);
+
+        confirmStub.restore();
+    });
+
+    it('should not delete an event when confirmation is false', () => {
+        const event = {
+            target: {
+                classList: { contains: sinon.stub().returns(true) },
+                parentElement: { remove: sinon.spy() }
+            }
+        };
+
+        const confirmStub = sinon.stub(window, 'confirm').returns(false);
+
+        deleteEvent(event);
+
+        assert(!event.target.parentElement.remove.called);
+
+        confirmStub.restore();
+    });
+
+    it('should not delete an event if delete button is not clicked', () => {
+        const event = {
+            target: {
+                classList: { contains: sinon.stub().returns(false) },
+                parentElement: { remove: sinon.spy() }
+            }
+        };
+
+        deleteEvent(event);
+
+        assert(!event.target.parentElement.remove.called);
     });
 });
-
