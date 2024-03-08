@@ -1,3 +1,4 @@
+
 const { addEvent, formatDate, deleteEvent } = require('./open.js');
 describe('addEvent', () => {
     test('it should add a new event to the events list', () => {
