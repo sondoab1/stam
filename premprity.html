@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookstore Discounts</title>
+    <style>
+        h1 {
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #discountMessage {
+            display: none;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            color: green;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+        }
+
+        .book-image {
+            max-width: 50px;
+            display: block;
+            margin: 5 auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Bookstore Discounts</h1>
+    <form id="discountForm" action="http://localhost:4000/primprity" method="POST">
+        <h2>Choose Books to Apply Discounts</h2>
+        <label for="book1">
+            <input type="checkbox" id="book1" name="books" value="Book 1"> Book 1
+            <img src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcSJppsBjlhiC3NM5ic2UwVCBUsMReLC6reURgT6K7qp6xIrK--k6rIE50HqxWUqT1C04KhjJdpjdQLhA8t6pwZzdMtYZn7eZ8TD-q5FoKixIlHW0ZOyXi8iSEncm90F00pslbWkH5rMlQ&usqp=CAc" alt="Book 1" class="book-image">
+        </label><br>
+        <label for="book2">
+            <input type="checkbox" id="book2" name="books" value="Book 2"> Book 2
+            <!-- Placeholder URL for Book 2 image -->
+            <img src="https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTwodpQSAp8avmBv5rnBGoKKjN4XLWap2QOXZlf-SKtzobm0-cOgT5r7pzchxfgADE0XpsBbJvlYDNM4LKlDHuWAr6BWG1t0TLOrKC6Phc&usqp=CAc" alt="Book 2" class="book-image">
+        </label><br>
+        <!-- Add more books as needed -->
+
+        <!-- Corrected onclick attribute -->
+        <button type="button" onclick="applyDiscounts()">Apply Discounts</button>
+        <h3 id="discountMessage">Discounts applied successfully!</h3>
+        <p>Click <a href="HomePageM.html">here</a> to go to home .</p>
+    </form>
+
+    <script>
+        function applyDiscounts() {
+            // Assuming some logic here to apply discounts
+
+            // Display the success message
+            document.getElementById('discountMessage').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
