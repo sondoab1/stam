@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Happenings</title>
+    <link rel="stylesheet" href="manger_events.css">
+</head>
+<body>
+    <header>
+        <div class="colored-bar">
+            <h1>Library Events</h1>
+        </div>
+    </header>
+    <main>
+        <section class="upcoming-events">
+        </section>
+        <section class="event-descriptions">
+        </section>
+        <form id="add-event-form">
+            <label for="worker-name">Worker Name:</label>
+            <input type="text" id="worker-name" name="worker-name" required><br>
+            <label for="worker-last-name">Worker Last Name:</label>
+            <input type="text" id="worker-last-name" name="worker-last-name" required><br>
+            <label for="event-title">Event Title:</label>
+            <input type="text" id="event-title" name="event-title" required><br>
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date" required><br>
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date" required><br>
+            <label for="event-description">Event Description:</label><br>
+            <textarea id="event-description" name="event-description" rows="4" cols="50" required></textarea><br>
+            <button onclick="addEvent()">Add Event</button>
+        </form>
+    </main>
+
+    <script src="manger_events.js"></script>
+    
+    </script>
+</body>
+</html>
+

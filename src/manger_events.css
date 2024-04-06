@@ -1,0 +1,175 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; /* Add position relative to position children absolutely */
+}
+
+.colored-bar {
+    background-color: #1bcc5f; 
+    color: white;
+    padding: 10px;
+}
+
+.upcoming-events {
+    margin-bottom: 20px;
+}
+
+.event-descriptions, .location {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #29b051; 
+}
+
+.event {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative; /* To position start and end dates */
+}
+
+.event h2 {
+    margin: 0;
+}
+
+.event p {
+    margin-top: 5px;
+    display: none;
+}
+
+.start-date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; 
+    text-align: center; 
+}
+
+.end-date {
+    position: absolute;
+    top: 0;
+    right: 0; 
+}
+.date-separator {
+    margin-right: 5px; 
+    margin-left: 5px;
+}
+
+.location {
+    margin-top: 20px; /* Add some space between event description and location */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative; /* Add position relative to position children absolutely */
+}
+
+.colored-bar {
+    background-color: #1bcc5f; 
+    color: white;
+    padding: 10px;
+}
+
+.upcoming-events {
+    margin-bottom: 20px;
+}
+
+.event-descriptions, .location {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #29b051; 
+}
+
+.event {
+    background-color: #f4f4f4;
+    padding: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    position: relative; /* To position start and end dates */
+}
+
+.event h2 {
+    margin: 0;
+}
+
+.event p {
+    margin-top: 5px;
+    display: none;
+}
+
+.start-date {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0; 
+    text-align: center; 
+}
+
+.end-date {
+    position: absolute;
+    top: 0;
+    right: 0; 
+}
+.date-separator {
+    margin-right: 5px; 
+    margin-left: 5px;
+}
+
+.location {
+    margin-top: 20px; 
+}
+#form-#add-event-form {
+    position: absolute;
+    top: calc(100% + 20px); /* Place the form below the title bar */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: none; /* Initially hide the form */
+}
+
+#add-event-form.show {
+    display: block; /* Show the form when the 'show' class is added */
+}
+
+#add-event-form label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+#add-event-form input,
+#add-event-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#add-event-form button {
+    background-color: #1bcc5f;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
