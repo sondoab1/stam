@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>interview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #interviewWindow {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            z-index: 2;
+        }
+
+        #interviewWindow h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        #interviewWindow form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #interviewWindow label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        #interviewWindow input[type="tel"],
+        #interviewWindow input[type="text"] {
+            padding: 8px;
+            margin-bottom: 15px;
+            width: calc(100% - 20px);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+
+        #interviewWindow button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        #interviewWindow button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="interviewWindow">
+        <h2>Interview</h2>
+       
+        <form id="interviewForm" action="http://localhost:4005/interview" method="POST">
+            <label for="YourName">Your Name:</label>
+            <input type="text" id="YourName" name="YourName" required>
+
+            <label for="Phone">Phone:</label>
+            <input type="tel" id="Phone" name="Phone" pattern="0[0-9]{9}" required>
+
+            <label for="Contribution">Contribution/selled-2:</label>
+            <input type="text" id="Contribution" name="Contribution" required>
+            
+            <label for="AmountOfBooks">Amount of Books:</label>
+            <input type="tel" id="AmountOfBooks" name="AmountOfBooks"  required>
+            
+            <button type="submit">Submit</button>
+        </form>
+        <p id="errorMsg" class="error"></p>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const interviewWindow = document.getElementById('interviewWindow');
+            interviewWindow.style.display = 'block';
+        });
+
+        const interviewForm = document.getElementById('interviewForm');
+        const errorMsg = document.getElementById('errorMsg');
+
+        interviewForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const contribution = document.getElementById('Contribution').value;
+            if (contribution.toLowerCase() !== 'contribution' && contribution.toLowerCase() !== 'selled-2') {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Must be one of these words: Contribution or selled-2.';  
+            } else {
+                errorMsg.style.display = 'none';
+                interviewWindow.style.display = 'none';
+                alert('Your request was successfully sent.');
+                interviewForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
