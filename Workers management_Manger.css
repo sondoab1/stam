@@ -1,0 +1,89 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+}
+
+.sidebar {
+    flex: 0 0 200px; 
+    background-color: #4CAF50; 
+    color: #fff; 
+    padding: 20px;
+    height: 100vh; 
+    overflow-y: auto; /
+}
+
+.worker-info {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.content {
+    flex: 3;
+    background-color: #fff; 
+    padding: 20px;
+}
+
+#form-container input {
+    width: calc(100% - 10px); 
+    margin-bottom: 10px;
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+}
+
+#form-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+}
+
+#form-container button:hover {
+    background-color: #45a049; 
+}
+
+#worker-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#worker-table th, #worker-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+#worker-table th {
+    background-color: #f2f2f2; 
+}
+
+#worker-table tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+.delete {
+    color: #fff; 
+    background-color: #ff0000; 
+    padding: 8px; 
+    width: 48px; 
+    height: 24px; 
+    text-align: center; 
+    line-height: 1; 
+    border: none; 
+    cursor: pointer;
+}
+
+#worker-table td.worker-info {
+    font-weight: bold;
+    color: #333; 
+}
+
+

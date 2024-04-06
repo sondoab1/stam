@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Worker Management System</title>
+    <link rel="stylesheet" href="Workers management_Manger.css">
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <div class="worker-info">Worker Information</div>
+        </div>
+        <div class="content">
+            <div id="form-container">
+                <input type="text" id="name" placeholder="Name"><br>
+                <input type="text" id="familyName" placeholder="Family Name"><br>
+                <input type="text" id="location" placeholder="Location"><br>
+                <input type="text" id="phone" placeholder="Phone"><br>
+                <input type="text" id="email" placeholder="Email"><br>
+                <input type="number" id="salary" placeholder="Salary"><br>
+                <input type="text" id="workerId" placeholder="Worker ID"><br>
+                <button onclick="addWorker()">Add Worker</button>
+            </div>
+            <table id="worker-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Family Name</th>
+                        <th>Location</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        <th>Salary</th>
+                        <th>Worker ID</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="worker-list"></tbody>
+            </table>
+        </div>
+    </div>
+    <script src="Workers management_Manger.js"></script>
+</body>
+</html>
+
