@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> </head>
+<body>
+    <div class="login-wrapper">
+        <form action="" class="form">
+            <h2>Login</h2>
+            <div class="input.group">
+              <input type="text" name="loginUser" id="Username" required/>
+              <label for="loginUser">username</label>
+            </div>
+            <div class="input.group">
+                <input
+                type="password"
+                name="loginPassword"
+                id="password"
+                required
+                />
+                <label for="loginPassword">Password</label>
+            </div>
+            <input type="submit" value="Login" class="submit-btn" onclick="auth()"/>
+        </form>
+    </div>
+    <script>
+        function auth(){
+            var Username=document.getElementById("Username").value;
+            var password=document.getElementById("password").value;
+            if(Username=="Admin" && password=="admin123"){
+                window.location.assign("homepageM.html")
+                alert("Login Successfully");
+            }
+            else{
+                alert("Invalid Information");
+                return;
+            }
+        }
+
+    </script>
+</body>
+</html>
