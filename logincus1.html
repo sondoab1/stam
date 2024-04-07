@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+   <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    .container {
+        background-color: #fff;
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+        margin-top: 0;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    .input-group {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .input-group label {
+        position: absolute;
+        left: 10px;
+        top: 10px;
+        color: #999;
+        transition: all 0.3s ease-out;
+    }
+
+    .input-group input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+
+    .submit-btn {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        background-color: #0056b3;
+    }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login as Worker</h2>
+        <input type="text" id="workerCode" placeholder="Enter Worker Code">
+        <button onclick="loginWorker()">Login</button>
+    </div>
+    <div class="container">
+        <h2>Login as Customer</h2>
+        <input type="email" id="customerEmail" placeholder="Enter Email">
+        <input type="password" id="customerPassword" placeholder="Enter Password">
+        <button onclick="loginCustomer()">Login</button>
+    </div>
+
+    <div class="container">
+             <h2>Login as Admin</h2>
+             <input type="username" id="Adminusername" placeholder="Enter username">
+             <input type="password" id="AdminPassword" placeholder="Enter Password">
+             <button onclick="loginAdmin()">Login</button>
+    </div>
+
+    <script>
+        function loginWorker() {
+            var workerCode = document.getElementById('workerCode').value;
+            // Perform authentication logic for worker's code
+            if (workerCode === 'worker_code') {
+                // Redirect to worker's home page
+                window.location.href = 'worker_home.html';
+            } else {
+                alert('Invalid worker code');
+            }
+        }
+
+        function loginCustomer() {
+            var email = document.getElementById('customerEmail').value;
+            var password = document.getElementById('customerPassword').value;
+            // Perform authentication logic for customer's email and password
+            if (email === 'customer@example.com' && password === 'password') {
+                // Redirect to customer's home page
+                window.location.href = 'customer_home.html';
+            } else {
+                alert('Invalid email or password');
+            }
+        }
+
+        function loginAdmin() {
+    var Username = document.getElementById("Adminusername").value; 
+    var password = document.getElementById("AdminPassword").value; 
+    if (Username === "Admin" && password === "admin123") {
+        window.location.href = "HomePageM.html";
+        alert("Login Successfully");
+    } else {
+        alert("Invalid Information");
+    }
+}
+
+
+    </script>
+</body>
+</html>
+
+
