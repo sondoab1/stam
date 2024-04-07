@@ -1,0 +1,267 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"/>
+    <title>dropdown Menu</title>
+    <style>
+    :root {
+      --color-primary: #0073ff;
+      --color-white: #e9e9e9;
+      --color-black: #347c42;
+      --color-black-1: #212b38;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #347c42;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 1000px; /* تعديل عرض الكتلة */
+            margin: 15px auto;
+            padding: 0 15px;
+            display: flex;
+            flex-wrap: wrap; /* تجاوز العرض للأسفل عند الحاجة */
+            gap: 15px; /* تعديل المسافات بين الكتل */
+        }
+
+        .block {
+            width: calc(33.33% - 15px); /* تعديل عرض الكتلة والمسافات بينها */
+            background-color: #f0f0f0;
+            padding: 5px;/*الطول*/
+            box-sizing: border-box;
+            border: 1px solid #a23535;
+            border-radius: 5px;
+            overflow: hidden; /* تحديد الحد الأقصى للمحتوى */
+        }
+
+        .block img {
+            max-width: 40%;
+            height: auto;
+            display: block;
+            margin: 0 auto 15px;
+        }
+
+        .block h3 {
+            margin: 0 0 10px;
+            font-size: 18px;
+        }
+
+        .block p {
+            margin: 0;
+            font-size: 10px;
+            line-height: 1.5;
+        }
+    
+    .logo {
+      color: var(--color-white);
+      font-size: 30px;
+    }
+    
+    .logo span {
+      color: var(--color-primary);
+    }
+    
+    .menu-bar {
+      background-color: var(--color-black);
+      height: 80px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 5%;
+    
+      position: relative;
+    }
+    
+    .menu-bar ul {
+      list-style: none;
+      display: flex;
+    }
+    
+    .menu-bar ul li {
+      /* width: 120px; */
+      padding: 10px 30px;
+      /* text-align: center; */
+    
+      position: relative;
+    }
+    
+    .menu-bar ul li a {
+      font-size: 20px;
+      color: var(--color-white);
+      text-decoration: none;
+    
+      transition: all 0.3s;
+    }
+    
+    .menu-bar ul li a:hover {
+      color: var(--color-primary);
+    }
+    
+    .fas {
+      float: right;
+      margin-left: 10px;
+      padding-top: 3px;
+    }
+    
+    /* dropdown menu style */
+    .dropdown-menu {
+      display: none;
+    }
+    
+    .menu-bar ul li:hover .dropdown-menu {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background-color: var(--color-black);
+    }
+    
+    .menu-bar ul li:hover .dropdown-menu ul {
+      display: block;
+      margin: 10px;
+    }
+    
+    .menu-bar ul li:hover .dropdown-menu ul li {
+      width: 150px;
+      padding: 10px;
+    }
+    
+    .dropdown-menu-1 {
+      display: none;
+    }
+    
+    .dropdown-menu ul li:hover .dropdown-menu-1 {
+      display: block;
+      position: absolute;
+      left: 150px;
+      top: 0;
+      background-color: var(--color-black);
+    }
+    
+    .hero {
+      height: calc(100vh - 80px);
+      background-image: url(./bg.jpg);
+      background-position: center;
+    }
+  
+    </style>
+  </head>
+
+
+  <body>
+    <div class="menu-bar">
+      <h1 class="logo">E-karaouine</h1>
+      
+      <ul>
+        
+        <li><a href="HomePageW.html">Home</a></li>
+        <li><a href="book_worker.html">AddProdact </a></li>
+        <li><a href="events_worker.html">event</a></li>
+        <li><a href="premprity.html">premprity</a></li>
+        <li><a href="#">OrderNewBook</a></li>
+        <li><a href="AddProdectW2.html">Ed-2</a></li>
+        <li><a href="logoutW.html">Log OUT</a></li>
+        
+      </ul>
+    </div>
+
+    
+
+    <div class="container">
+      
+      <div class="block">
+          <h3>DIARY of a Wimpy Kid </h3>
+          <img src="https://toppsta.com/images/covers/4/9/0/6/9780141324906.webp?t=1695468655" alt="Book Image 1">
+          <p>othur book:</p>
+          <p>The price:15$</p>
+          <button type="Add to Cart">Add to Cart</button>
+
+      </div>
+      <div class="block">
+          <h3>Book Title 2</h3>
+          <img src="https://toppsta.com/images/covers/4/9/0/6/9780141324906.webp?t=1695468655" alt="Book Image 2">
+          <p>othur book:</p>
+          <p>The price:20$</p>
+          <button type="Add to Cart">Add to Cart</button>
+
+      </div>
+      <div class="block">
+          <h3>Book Title 1</h3>
+          <img src="https://toppsta.com/images/covers/4/9/0/6/9780141324906.webp?t=1695468655" alt="Book Image 1">
+          <p>othur book:</p>
+          <p>The price:30$</p>
+          <button type="Add to Cart">Add to Cart</button>
+      </div>
+      <div class="block">
+          <h3>Book Title 1</h3>
+          <img src="https://toppsta.com/images/covers/4/9/0/6/9780141324906.webp?t=1695468655" alt="Book Image 1">
+          <p>othur book:</p>
+          <p>The price:40$</p>
+          <button type="Add to Cart">Add to Cart</button>
+      </div>
+      <div class="block">
+          <h3>Book Title 1</h3>
+          <img src="https://toppsta.com/images/covers/4/9/0/6/9780141324906.webp?t=1695468655" alt="Book Image 1">
+          <p>othur book:</p>
+          <p>The price:40$</p>
+          <button type="Add to Cart">Add to Cart</button>
+      </div>
+      <div class="block">
+          <h3>Book Title 1</h3>
+          <img src="https://toppsta.com/images/covers/4/9/0/6/9780141324906.webp?t=1695468655" alt="Book Image 1">
+          <p>othur book:</p>
+          <p>The price:75$</p>
+          <button type="Add to Cart">Add to Cart</button>
+      </div>
+  </div>
+
+    <div class="hero">
+      &nbsp;
+    </div>
+
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // تحديد العناصر
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        const cartItemsList = document.getElementById('cart-items');
+        let cartTotal = 0;
+    
+        // إضافة حدث الضغط لزر العرض في سلة المشتريات
+        document.getElementById('Cart').addEventListener('click', () => {
+          alert('Cart is empty'); // هنا يمكنك استبدال هذا الإنذار بعرض سلة المشتريات بشكل فعلي
+        });
+    
+        // إضافة حدث الضغط لزر "Add to Cart" لكل منتج
+        addToCartButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const product = button.parentElement.querySelector('h3').textContent;
+            const price = 15; // سعر الكتاب (يمكنك تغييره إلى السعر الفعلي)
+            cartTotal += price;
+            const cartItem = `<li>${product} - $${price.toFixed(2)}</li>`;
+            cartItemsList.insertAdjacentHTML('beforeend', cartItem);
+            document.getElementById('cart-total').textContent = cartTotal.toFixed(2);
+          });
+        });
+      });
+    </script>
+    
+  </body>
+</html>
