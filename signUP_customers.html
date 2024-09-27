@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #signUpBtn {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            z-index: 1;
+        }
+
+        #signUpWindow {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            z-index: 2;
+        }
+
+        #signUpWindow h2 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        #signUpWindow form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #signUpWindow label {
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        #signUpWindow input[type="text"],
+        #signUpWindow input[type="email"],
+        #signUpWindow input[type="tel"],
+        #signUpWindow input[type="password"] {
+            padding: 8px;
+            margin-bottom: 15px;
+            width: calc(100% - 20px);
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        #signUpWindow button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        #signUpWindow button:hover {
+            background-color: #45a049;
+        }
+
+        .error {
+            color: red;
+            margin-top: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button id="signUpBtn">Sign Up</button>
+    <div id="signUpWindow">
+        <h2>Sign Up</h2>
+        <form id="signUpForm">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName" pattern="[A-Z][a-z]*" required>
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName" pattern="[A-Z][a-z]*" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" pattern="[a-zA-Z0-9._%+-]+@gmail.com" required>
+            
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="0[0-9]{9}" required>
+            
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" pattern="[A-Za-z]{8,}" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword" required>
+            
+            <button type="submit">Sign Up</button>
+            <button type="button" id="cancelBtn">Cancel</button>
+        </form>
+        <p id="errorMsg" class="error"></p>
+    </div>
+    <script>
+        const signUpBtn = document.getElementById('signUpBtn');
+        const signUpWindow = document.getElementById('signUpWindow');
+        const signUpForm = document.getElementById('signUpForm');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const errorMsg = document.getElementById('errorMsg');
+
+        signUpBtn.addEventListener('click', () => {
+            signUpWindow.style.display = 'block';
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            signUpWindow.style.display = 'none';
+        });
+
+        signUpForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            if (password !== confirmPassword) {
+                errorMsg.style.display = 'block';
+                errorMsg.textContent = 'Passwords do not match.';
+            } else {
+                errorMsg.style.display = 'none';
+                signUpWindow.style.display = 'none';
+                alert('Your request was successfully sent.');
+                signUpForm.reset();
+            }
+        });
+    </script>
+</body>
+</html>
